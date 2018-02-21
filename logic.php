@@ -1,6 +1,13 @@
 <?php
-$booksJason = file_get_contents('books.json');
-$books = json_decode($booksJason, true);
-
-
-
+function calculateIndAmount()
+{
+    if(isset($_GET["tab1"]))
+    {
+        $x = onlyNumbers1to9($_GET["tab1"]);
+        $y = onlyNumbers1to9($_GET["name"]);
+        $z = $_GET["tip1"];
+        $total = $x + $x * $z/100;
+        $final = $total /$y;
+        return round($final,2);
+    }
+}
