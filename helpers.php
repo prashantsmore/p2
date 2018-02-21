@@ -54,12 +54,11 @@ function onlyNumbers1to9($string)
 
 /**
  * Removes any other character except digits, 1 through 9
- * @param $array
  * @return string
  */
 function validateInput()
 {
-    $vars = array('name', 'tab1', 'tip1');
+    $vars = ['split', 'tab', 'tip1'];
     $verified = true;
     foreach ($vars as $v) {
         if (!isset($_GET[$v]) || empty(onlyNumbers1to9($_GET[$v]))) {
@@ -69,5 +68,6 @@ function validateInput()
             $verified = false;
         }
     }
+
     return $verified;
 }

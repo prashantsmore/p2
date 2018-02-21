@@ -1,6 +1,7 @@
 <?php
 require 'helpers.php';
 require 'logic.php';
+require 'validation-logic.php';
 ?>
 
 <!DOCTYPE html>
@@ -16,49 +17,87 @@ require 'logic.php';
 </head>
 <body>
 <div class="container">
-<h1>Bill Splitter</h1>
+    <h2 class= "h3" align='center'>Bill Splitter</h2>
 
-<form name="bill-form" method='GET' action='index.php'>
+    <form name="bill-form" method='GET' action='index.php'>
 
-    <p>Accepts The Total Amount Spent, Adds the Tip Percentage And Calculates Individual Share.</p>
+        <DIV class="info">Accepts The Total Amount Spent & Adds Tip Percentage And Calculates Individual Share.</DIV>
 
-    <div class="info">
-        <label for='num'>Split How Many Ways?</label>
-        <input type="text" id="name" name="name" value="<?php echo $name; ?>">
-    </div>
+        <div >
+            <label for='split'>Split How Many Ways? (required|numeric|min 2)</label>
+            <input type="text" id="split" name="split" value="<?php echo $split; ?>">
+        </div>
 
-    <label for='tab1'>How Much Was The Tab</label>
-    <input type="text" name="tab1" value="<?php echo $tab1; ?>">
+        <div >
+            <label for='tab'>How Much Was The Tab? (required|numeric|min 2)</label>
+            <input type="text" name="tab" value="<?php echo $tab; ?>">
+        </div>
 
-    <label for='tip1'>How Was The Service</label>
-    <select name='tip1' id='tip1'>
-        <option value='choose'>Choose one...</option>
-        <option value='18' <?php if ($tip1 == '18') echo 'selected' ?>>Good -18%</option>
-        <option value='10' <?php if ($tip1 == '10') echo 'selected' ?>>OK - 10%</option>
-        <option value='5' <?php if ($tip1 == '5') echo 'selected' ?>>Bad - 5%</option>
-    </select>
+        <div >
+            <label for='tip'> How Was The Service? (required)</label>
+             <select  name='tip' id='tip'>
+                <option value='choose'>Choose One Of The Below.....</option>
+                <option value='18' <?php if ($tip == '18') echo 'selected' ?>>Good -18%</option>
+                <option value='10' <?php if ($tip == '10') echo 'selected' ?>>OK - 10%</option>
+                <option value='5' <?php if ($tip == '5') echo 'selected' ?>>Bad - 5%</option>
+            </select>
+        </div>
 
-    <input type="submit" name="submit" onclick="submitForm()"><br>
+        <div>
+            <fieldset class='radios'>
+                <label> You can provide the optional food review below </label>
+                <label><input type='radio'
+                              name='food'
+                              value='excel' <?php if ($food == 'excel') echo 'checked' ?>> Excellent</label>
+                <label><input type='radio'
+                              name='food'
+                              value='good' <?php if ($food == 'good') echo 'checked' ?>> Good</label>
+                <label><input type='radio'
+                              name='food'
+                              value='bad' <?php if ($food == 'bad') echo 'checked' ?>> Not Up To Mark</label>
+            </fieldset>
+        </div>
+        <div>
+            <label> Do You Want To Open Fortune Cookie? </label>
+            <input type="checkbox" name="fortuneCookie" value="Yes"/>
+        </div>
 
-    <script>
-        function submitForm() {
-            document.bill - form.submit();
-            document.bill - form.reset();
-        }
-    </script>
-</form>
-<?php
-if (!isset($_GET['submit'])) exit();
-$verified = true;
-$verified = validateInput();
-if (!$verified): ?>
-    <p>All the Inputs are Required And Should be digits 1 to 9 Only.</p>
-    <p>Characters Other Than 1 through 9 will be removed.</p>
-<?php
-else:?>
-    <p> <?php echo 'The Individual Bill Is: ' . calculateIndAmount(); ?></p>
-<?php endif ?>
 
+        <input class="btn btn-primary" type="submit" name="submit" onclick="submitForm()"><br>
+
+        <script>
+            function submitForm() {
+                document.bill - form.submit();
+                document.bill - form.reset();
+            }
+        </script>
+    </form>
+
+
+    <?php
+
+    if (!empty($errors)) : ?>
+        <div class='alert alert-danger'>
+            <ul>
+                <?php foreach ($errors as $error) : ?>
+                    <li><?= $error ?></li>
+                <?php endforeach;
+                ?>
+            </ul>
+        </div>
+    <?php else : ?>
+
+        <?php if(!empty($_GET)) :?>
+            <DIV><?php echo 'The Individual Bill Is: ' . calculateIndAmount(); ?></DIV>
+        <?php endif; ?>
+       <?php if(isset($_GET["food"])) :?>
+            <DIV><?php echo 'The Food Review is: ' . generateFoodReview(); ?></DIV>
+        <?php endif; ?>
+        <?php if(isset($_GET["fortuneCookie"])) :?>
+            <DIV><?php echo 'The Fortune Cookie Message is  ' . generateRandomCookieQuote(); ?></DIV>
+        <?php endif; ?>
+
+    <?php endif; ?>
 </div>
 </body>
 </html>
