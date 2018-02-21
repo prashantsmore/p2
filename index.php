@@ -17,23 +17,23 @@ require 'validation-logic.php';
 </head>
 <body>
 <div class="container">
-    <h2 class= "h3" align='center'>Bill Splitter</h2>
+    <h2 class='h3'  align='center' >Bill Splitter</h2>
 
     <form name="bill-form" method='GET' action='index.php'>
 
-        <DIV class="info">Accepts The Total Amount Spent & Adds Tip Percentage And Calculates Individual Share.</DIV>
+        <DIV class="h1info">Accepts The Total Amount Spent & Adds Tip Percentage And Calculates Individual Share.</DIV>
 
-        <div >
+        <div  class="info">
             <label for='split'>Split How Many Ways? (required|numeric|min 2)</label>
             <input type="text" id="split" name="split" value="<?php echo $split; ?>">
         </div>
 
-        <div >
+        <div  class="info">
             <label for='tab'>How Much Was The Tab? (required|numeric|min 2)</label>
             <input type="text" name="tab" value="<?php echo $tab; ?>">
         </div>
 
-        <div >
+        <div class="info">
             <label for='tip'> How Was The Service? (required)</label>
              <select  name='tip' id='tip'>
                 <option value='choose'>Choose One Of The Below.....</option>
@@ -43,7 +43,7 @@ require 'validation-logic.php';
             </select>
         </div>
 
-        <div>
+        <div class="info">
             <fieldset class='radios'>
                 <label> You can provide the optional food review below </label>
                 <label><input type='radio'
@@ -57,7 +57,7 @@ require 'validation-logic.php';
                               value='bad' <?php if ($food == 'bad') echo 'checked' ?>> Not Up To Mark</label>
             </fieldset>
         </div>
-        <div>
+        <div class="info">
             <label> Do You Want To Open Fortune Cookie? </label>
             <input type="checkbox" name="fortuneCookie" value="Yes"/>
         </div>
