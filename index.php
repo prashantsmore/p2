@@ -90,10 +90,10 @@ require 'validation-logic.php';
             <DIV class="info2"><?php echo 'The Individual Bill Is: ' . calculateIndAmount(); ?></DIV>
         <?php endif; ?>
         <?php if (isset($_GET["food"])) : ?>
-            <DIV class="info2"><?php echo 'The Food Review is: ' . generateFoodReview(); ?></DIV>
+            <DIV class="info2"><?php echo 'The Food Review Is: ' . generateFoodReview(); ?></DIV>
         <?php endif; ?>
         <?php if (isset($_GET["fortuneCookie"])) : ?>
-            <DIV class="info2"><?php echo 'The Fortune Cookie Message is  ' . generateRandomCookieQuote(); ?></DIV>
+            <DIV class="info2"><?php echo 'The Fortune Cookie Message Is: ' . generateRandomCookieQuote(); ?></DIV>
         <?php endif; ?>
 
     <?php endif; ?>
