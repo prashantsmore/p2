@@ -17,26 +17,26 @@ require 'validation-logic.php';
 </head>
 <body>
 <div class="container">
-    <h2 class='h3'  align='center' >Bill Splitter</h2>
+    <h2 class='h1info'  align='center' >Bill Splitter</h2>
 
     <form name="bill-form" method='GET' action='index.php'>
 
         <DIV class="h1info">Accepts The Total Amount Spent & Adds Tip Percentage And Calculates Individual Share.</DIV>
 
         <div  class="info">
-            <label for='split'>Split How Many Ways? (required|numeric|min 2)</label>
-            <input type="text" id="split" name="split" value="<?php echo $split; ?>">
+            <label for='split'>Split How Many Ways? (required|numeric|min 1|max 4)</label>
+            <input type="text" id="split" name="split" value="<?= $form->prefill('split', '2', sanitize()) ?>">
         </div>
 
         <div  class="info">
             <label for='tab'>How Much Was The Tab? (required|numeric|min 2)</label>
-            <input type="text" name="tab" value="<?php echo $tab; ?>">
+            <input type="text" name="tab" value="<?= $form->prefill('tab', '2', sanitize()) ?>">
         </div>
 
         <div class="info">
             <label for='tip'> How Was The Service? (required)</label>
              <select  name='tip' id='tip'>
-                <option value='choose'>Choose One Of The Below.....</option>
+                <option value='choose'>Choose One ...</option>
                 <option value='18' <?php if ($tip == '18') echo 'selected' ?>>Good -18%</option>
                 <option value='10' <?php if ($tip == '10') echo 'selected' ?>>OK - 10%</option>
                 <option value='5' <?php if ($tip == '5') echo 'selected' ?>>Bad - 5%</option>
@@ -57,6 +57,7 @@ require 'validation-logic.php';
                               value='bad' <?php if ($food == 'bad') echo 'checked' ?>> Not Up To Mark</label>
             </fieldset>
         </div>
+
         <div class="info">
             <label> Do You Want To Open Fortune Cookie? </label>
             <input type="checkbox" name="fortuneCookie" value="Yes"/>
@@ -88,13 +89,13 @@ require 'validation-logic.php';
     <?php else : ?>
 
         <?php if(!empty($_GET)) :?>
-            <DIV><?php echo 'The Individual Bill Is: ' . calculateIndAmount(); ?></DIV>
+            <DIV class="info2"><?php echo 'The Individual Bill Is: ' . calculateIndAmount(); ?></DIV>
         <?php endif; ?>
        <?php if(isset($_GET["food"])) :?>
-            <DIV><?php echo 'The Food Review is: ' . generateFoodReview(); ?></DIV>
+            <DIV class="info2"><?php echo 'The Food Review is: ' . generateFoodReview(); ?></DIV>
         <?php endif; ?>
         <?php if(isset($_GET["fortuneCookie"])) :?>
-            <DIV><?php echo 'The Fortune Cookie Message is  ' . generateRandomCookieQuote(); ?></DIV>
+            <DIV class="info2"><?php echo 'The Fortune Cookie Message is  ' . generateRandomCookieQuote(); ?></DIV>
         <?php endif; ?>
 
     <?php endif; ?>

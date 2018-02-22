@@ -20,20 +20,36 @@ form #submit {
 
 .h1info {
 
-    padding:20px;
-    width: 900px;
-    font-size:20px;
-    margin: 0 auto;
     text-align: center;
+    text-transform: uppercase;
+    color: #4CAF50;
+    border: 2px solid black;
 }
 .info {
 
-    padding:20px;
+    padding:5px;
     width: 900px;
     font-size:18px;
     margin: 0 auto;
     text-align: left;
 }
+
+.info2 {
+
+    padding:5px;
+    width: 900px;
+    font-size:22px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+
+.bor{
+    border: 1px solid gray;
+    padding: 8px;
+}
+
+
 
 .image img {
     margin-top: 50px;
