@@ -21,7 +21,7 @@ require 'validation-logic.php';
 
     <form name="bill-form" method='GET' action='index.php'>
 
-        <H3 class="h1info" >Accepts The Total Amount Spent & Adds Tip Percentage And Calculates Individual Share.</H3>
+        <H3 class="info" >Accepts The Total Amount Spent & Adds Tip Percentage And Calculates Individual Share.</H3>
 
         <div  class="info">
             <label for="split">Split How Many Ways? (required|numeric|min 1|max 4)</label>
