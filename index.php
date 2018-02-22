@@ -17,25 +17,25 @@ require 'validation-logic.php';
 </head>
 <body>
 <div class="container">
-    <H1 class='h1info' >Bill Splitter</H1>
+    <H1 class='h1info'>Bill Splitter</H1>
 
     <form name="bill-form" method='GET' action='index.php'>
 
-        <H3 class="info" >Accepts The Total Amount Spent & Adds Tip Percentage And Calculates Individual Share.</H3>
+        <H3 class="info">Accepts The Total Amount Spent & Adds Tip Percentage And Calculates Individual Share.</H3>
 
-        <div  class="info">
+        <div class="info">
             <label for="split">Split How Many Ways? (required|numeric|min 1|max 4)</label>
             <input type="text" id="split" name="split" value="<?= $form->prefill('split', '2', sanitize()) ?>">
         </div>
 
-        <div  class="info">
+        <div class="info">
             <label for="tab">How Much Was The Tab? (required|numeric|min 2)</label>
             <input type="text" id="tab" name="tab" value="<?= $form->prefill('tab', '2', sanitize()) ?>">
         </div>
 
         <div class="info">
             <label for='tip'> How Was The Service? (required)</label>
-             <select  name='tip' id='tip'>
+            <select name='tip' id='tip'>
                 <option value='choose'>Choose One ...</option>
                 <option value='18' <?php if ($tip == '18') echo 'selected' ?>>Good -18%</option>
                 <option value='10' <?php if ($tip == '10') echo 'selected' ?>>OK - 10%</option>
@@ -74,9 +74,7 @@ require 'validation-logic.php';
         </script>
     </form>
 
-
     <?php
-
     if (!empty($errors)) : ?>
         <div class='alert alert-danger'>
             <ul>
@@ -88,13 +86,13 @@ require 'validation-logic.php';
         </div>
     <?php else : ?>
 
-        <?php if(!empty($_GET)) :?>
+        <?php if (!empty($_GET)) : ?>
             <DIV class="info2"><?php echo 'The Individual Bill Is: ' . calculateIndAmount(); ?></DIV>
         <?php endif; ?>
-       <?php if(isset($_GET["food"])) :?>
+        <?php if (isset($_GET["food"])) : ?>
             <DIV class="info2"><?php echo 'The Food Review is: ' . generateFoodReview(); ?></DIV>
         <?php endif; ?>
-        <?php if(isset($_GET["fortuneCookie"])) :?>
+        <?php if (isset($_GET["fortuneCookie"])) : ?>
             <DIV class="info2"><?php echo 'The Fortune Cookie Message is  ' . generateRandomCookieQuote(); ?></DIV>
         <?php endif; ?>
 
