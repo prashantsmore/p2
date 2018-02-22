@@ -5,13 +5,15 @@
  */
 function calculateIndAmount()
 {
-        $x = $_GET["tab"];
-       $y = $_GET["split"];
-        $z = $_GET["tip"];
-        $total = $x + $x * $z/100;
-        $final = $total /$y;
-        return round($final,2);
+    $x = $_GET["tab"];
+    $y = $_GET["split"];
+    $z = $_GET["tip"];
+    $total = $x + $x * $z / 100;
+    $final = $total / $y;
+
+    return round($final, 2);
 }
+
 /**
  * Generates random quote
  * @return string
@@ -19,7 +21,7 @@ function calculateIndAmount()
 function generateRandomCookieQuote()
 {
     $quote = '';
-    if(isset($_GET["fortuneCookie"]) && $_GET["fortuneCookie"] == 'Yes') {
+    if (isset($_GET["fortuneCookie"]) && $_GET["fortuneCookie"] == 'Yes') {
         //Generate Random Number from range of 0 to 5
         $randomNo = rand(0, 5);
         $listOfQuotes = ["All fortunes are wrong except this one.",
@@ -28,11 +30,12 @@ function generateRandomCookieQuote()
             "You will receive a fortune cookie.",
             "Some fortune cookies contain no fortune.",
             "Don’t let statistics do a number on you."];
-            $quote = $listOfQuotes[$randomNo];
-            return $quote;
-            
+        $quote = $listOfQuotes[$randomNo];
+
+        return $quote;
     }
 }
+
 /**
  * Generates food review
  * @return string
@@ -53,5 +56,6 @@ function generateFoodReview()
         default:
             echo "Code unreachable";
     }
-   return $review;
+
+    return $review;
 }
