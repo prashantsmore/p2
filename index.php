@@ -17,11 +17,11 @@ require 'validation-logic.php';
 </head>
 <body>
 <div class="container">
-    <DIV class='h1info' >Bill Splitter</DIV>
+    <H1 class='h1info' >Bill Splitter</H1>
 
     <form name="bill-form" method='GET' action='index.php'>
 
-        <H2 class="h1info" >Accepts The Total Amount Spent & Adds Tip Percentage And Calculates Individual Share.</H2>
+        <H3 class="h1info" >Accepts The Total Amount Spent & Adds Tip Percentage And Calculates Individual Share.</H3>
 
         <div  class="info">
             <label for="split">Split How Many Ways? (required|numeric|min 1|max 4)</label>
