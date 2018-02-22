@@ -29,8 +29,8 @@ require 'validation-logic.php';
         </div>
 
         <div class="info">
-            <label for="tab">How Much Was The Tab? (required|numeric|min 2)</label>
-            <input type="text" id="tab" name="tab" value="<?= $form->prefill('tab', '2', sanitize()) ?>">
+            <label for="tab">How Much Was The Tab? (required|numeric|min 3)</label>
+            <input type="text" id="tab" name="tab" value="<?= $form->prefill('tab', '3', sanitize()) ?>">
         </div>
 
         <div class="info">
