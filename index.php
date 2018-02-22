@@ -24,13 +24,13 @@ require 'validation-logic.php';
         <H2 class="h1info" >Accepts The Total Amount Spent & Adds Tip Percentage And Calculates Individual Share.</H2>
 
         <div  class="info">
-            <label for='split'>Split How Many Ways? (required|numeric|min 1|max 4)</label>
+            <label for="split">Split How Many Ways? (required|numeric|min 1|max 4)</label>
             <input type="text" id="split" name="split" value="<?= $form->prefill('split', '2', sanitize()) ?>">
         </div>
 
         <div  class="info">
-            <label for='tab'>How Much Was The Tab? (required|numeric|min 2)</label>
-            <input type="text" name="tab" value="<?= $form->prefill('tab', '2', sanitize()) ?>">
+            <label for="tab">How Much Was The Tab? (required|numeric|min 2)</label>
+            <input type="text" id="tab" name="tab" value="<?= $form->prefill('tab', '2', sanitize()) ?>">
         </div>
 
         <div class="info">
