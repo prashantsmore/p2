@@ -33,8 +33,8 @@ function generateRandomCookieQuote()
 
             $quote = $listOfQuotes[$randomNo];
             return $quote;
+            
     }
-
 
 }
 /**
