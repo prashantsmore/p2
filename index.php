@@ -17,7 +17,7 @@ require 'validation-logic.php';
 </head>
 <body>
 <div class="container">
-    <h2 class='h1info'  align='center' >Bill Splitter</h2>
+    <DIV class='h1info'  align='center' >Bill Splitter</DIV>
 
     <form name="bill-form" method='GET' action='index.php'>
 
