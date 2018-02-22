@@ -31,7 +31,7 @@ function generateRandomCookieQuote()
             "Some fortune cookies contain no fortune.",
             "Don’t let statistics do a number on you."];
 
-            $quote = 'Your Fortune Cookie says:- '.$listOfQuotes[$randomNo];
+            $quote = $listOfQuotes[$randomNo];
             return $quote;
     }
 
